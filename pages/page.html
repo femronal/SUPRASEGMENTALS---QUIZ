@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ENG120 - QUIZ</title>
+
+    <meta http-equiv="Content-Type" content="text/html; CHARSET=Windows-1252">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Author" content="Made with QuizFaber 4.0.20">
+    <meta name="generator" content="QuizFaber 4.0.20">
+    <meta name="keywords" content="quiz">
+    <meta name="description" content="ENG120 - Few Weeks To Exam">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="../scripts/error.js"></script>
+    <script src="../scripts/definitions.js"></script>
+    <script src="../scripts/security.js"></script>
+    <script src="../scripts/cookie.js"></script>
+    <script src="../scripts/storage.js"></script>
+    <script src="../scripts/time.js"></script>
+    <script src="../scripts/valuation.js"></script>
+    <script src="../scripts/navigation.js"></script>
+    <script src="../scripts/utility.js"></script>
+    <script src="../scripts/engine.js"></script>
+    <script src="../scripts/view.js"></script>
+    <script src="../scripts/matching.js"></script>
+    <script src="../scripts/lightbox.js"></script>
+
+    <script src="../scripts/page.js"></script>
+    
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/lightbox.css">
+    
+
+</head>
+<body>
+
+    <div class="header" id="idTopBar">
+        <div class="row">
+            <div class="col-sm-3 col-xs-12 text-left text-xs-center"><span class="label_topbar_clock" id="idClock"></span></div>
+            <div class="col-sm-2 col-xs-3 text-center text-xs-left" id="idDivCorrectAnswer"><span class="label_topbar nowrap">correct</span> <span id="idCorrectAnswers" class="badge"></span> </div>
+            <div class="col-sm-2 col-xs-3 text-center text-xs-left" id="idDivWrongAnswer"><span class="label_topbar nowrap">wrong</span> <span id="idWrongAnswers" class="badge"></span> </div>
+            <div class="col-sm-2 col-xs-3 text-center text-xs-left" id="idDivToBeAnswered"><span class="label_topbar nowrap">to be answered</span> <span id="idToBeAnswered" class="badge"></span> </div>
+            <div class="col-sm-3 col-xs-3 text-right">
+                <button id="idBtnPrintQuiz" type="button" class="btn btn-primary" onclick="onPrintQuizButtonClick()" style="display:none">PRINT</button>
+                <button id="idBtnGoToResults" type="button" class="btn btn-primary" onclick="onQuizResultsButtonClick()" style="display:none">Quiz Result</button>
+                <button id="idBtnRetire" type="button" class="btn btn-warning" onclick="onAbandonButtonClick()" style="display:none">Retire</button>
+            </div>
+            </div>
+        </div>
+
+    <div class="container">
+
+        <div class="jumbotron" id="idQuizHeader">
+            <h1 id="idQuizTitle"></h1>
+            <p class="lead">
+                <span id="idQuizDescription"></span>
+            <p id="idQuizProfile" style="display:none">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#idQuizProfileInfo">More info</button>
+                <div id="idQuizProfileInfo" class="collapse">
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Author</strong><span class="pull-right" id="idAuthor"></span></li>
+                        <li class="list-group-item"><strong>Argument</strong><span class="pull-right" id="idArgument"></span></li>
+                        <li class="list-group-item"><strong>Company</strong><span class="pull-right" id="idCompany"></span></li>
+                        <li class="list-group-item"><strong>Date</strong><span class="pull-right" id="idDate"></span></li>
+                    </ul>
+                </div>
+            </p>
+            </p>
+        </div>
+
+        <div class="panel panel-default" id="idQuizResultsPanelTop" style="display:none">
+            <div class="panel-body">
+                <button type="button" class="btn btn-primary center-block" onclick="onQuizResultsButtonClick()">Quiz Result</button>
+            </div>
+        </div>
+
+        <div class="panel panel-default" id="idVerifyPanelTop" style="display:none">
+            <div class="panel-body">
+                <span>Al termine del quiz premi il pulsante 'VERIFICA' qui' a fianco</span>
+                <button type="button" class="btn btn-primary pull-right" onclick="onVerifyButtonClick()">Verifica</button>
+            </div>
+        </div>
+
+        <div class="well" id="idSectionTextIntro" style="display:none"></div>
+
+        <div class="panel panel-primary" id="idPanel1" ><div class="panel-heading" ><b>question 1</b></div><div class="panel-body" ><div id="divSuccess0" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail0" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect0" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo0" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning0" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg0" /></div>
+<div id="divError0" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg0" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Generative phonology is a generally accepted position on the degrees of stress.</span></p></span></p><form class="class_bool_choices" ><ol><li><p><span class="quiz_answer_class"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Is there any generally acceptable position in the degrees of stress in the first place?</span></p></span></p><div class="row" ><div class="col-sm-12 col-md-12 col-lg-12" ><input type="radio" id="idRadio0_0_T" name="optradio0_0" value="1" /><span class="true_false_class" >TRUE</span><input type="radio" id="idRadio0_0_F" name="optradio0_0" value="0" /><span class="true_false_class" >FALSE</span></div></div><br/></li></ol></form>
+<p class="text-center" ><button type="button" id="idOkButton0" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 0;onOkButtonClick(InitQuestion1)" >OK</button></p>
+</div></div>
+<div class="panel panel-primary" id="idPanel2" ><div class="panel-heading" ><b>question 2</b></div><div class="panel-body" ><div id="divSuccess1" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail1" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect1" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo1" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning1" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg1" /></div>
+<div id="divError1" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg1" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Generative phonology recognises how many levels of stress?</span></p></span></p><form><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio1_0" type="radio" name="optradio1" value="1" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">4</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio1_1" type="radio" name="optradio1" value="2" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">5</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio1_2" type="radio" name="optradio1" value="3" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">3</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio1_3" type="radio" name="optradio1" value="4" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">2</span></p></span></label><br/></div></form>
+<p class="text-center" ><button type="button" id="idOkButton1" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 1;onOkButtonClick(InitQuestion2)" >OK</button></p>
+</div></div>
+<div class="panel panel-primary" id="idPanel3" ><div class="panel-heading" ><b>question 3</b></div><div class="panel-body" ><div id="divSuccess2" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail2" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect2" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo2" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning2" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg2" /></div>
+<div id="divError2" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg2" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Name them in order of magnitude:</span><br>    <span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;"> 1. __________ 2. __________ 3. __________ 4. __________ 5. __________</span></p></span></p><form><p><span class="quiz_answer_class"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">1. <input id="idGap3_0" type="text" size="10" />  2. <input id="idGap3_1" type="text" size="10" />   3. <input id="idGap3_2" type="text" size="10" />  4. <input id="idGap3_3" type="text" size="10" />  5. <input id="idGap3_4" type="text" size="10" /></span></p></span></p></form>
+<p class="text-center" ><button type="button" id="idOkButton2" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 2;onOkButtonClick(InitQuestion3)" >OK</button></p>
+</div></div>
+<div class="panel panel-primary" id="idPanel4" ><div class="panel-heading" ><b>question 4</b></div><div class="panel-body" ><div id="divSuccess3" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail3" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect3" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo3" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning3" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg3" /></div>
+<div id="divError3" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg3" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">The strongest degree of a stressed syllable; i.e. the most prominent is a ___________.</span></p></span></p><form><p><span class="quiz_answer_class"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;"> <input id="idGap4_0" type="text" size="10" /></span></p></span></p></form>
+<p class="text-center" ><button type="button" id="idOkButton3" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 3;onOkButtonClick(InitQuestion4)" >OK</button></p>
+</div></div>
+<div class="panel panel-primary" id="idPanel5" ><div class="panel-heading" ><b>question 5</b></div><div class="panel-body" ><div id="divSuccess4" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail4" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect4" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo4" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning4" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg4" /></div>
+<div id="divError4" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg4" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Match both strokes.</span></p></span></p><form><div id="matching4" class="div_matching_class" ></div></form>
+<p class="text-center" ><button type="button" id="idOkButton4" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 4;onOkButtonClick(InitQuestion5)" >OK</button></p>
+</div></div>
+<div class="panel panel-primary" id="idPanel6" ><div class="panel-heading" ><b>question 6</b></div><div class="panel-body" ><div id="divSuccess5" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail5" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect5" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo5" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning5" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg5" /></div>
+<div id="divError5" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg5" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Primary stress is not phonetically marked by an increase in respiratory system.</span></p></span></p><form class="class_bool_choices" ><ol><li><p><span class="quiz_answer_class"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Remember that we talk more of prominence in stressed syllables.</span></p></span></p><div class="row" ><div class="col-sm-12 col-md-12 col-lg-12" ><input type="radio" id="idRadio5_0_T" name="optradio5_0" value="1" /><span class="true_false_class" >TRUE</span><input type="radio" id="idRadio5_0_F" name="optradio5_0" value="0" /><span class="true_false_class" >FALSE</span></div></div><br/></li></ol></form>
+<p class="text-center" ><button type="button" id="idOkButton5" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 5;onOkButtonClick(InitQuestion6)" >OK</button></p>
+</div></div>
+<div class="panel panel-primary" id="idPanel7" ><div class="panel-heading" ><b>question 7</b></div><div class="panel-body" ><div id="divSuccess6" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail6" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect6" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo6" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning6" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg6" /></div>
+<div id="divError6" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg6" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Primarily stressed syllables involves an alternation in pitch.</span></p></span></p><form class="class_bool_choices" ><ol><li><p><span class="quiz_answer_class"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Remember there is loudness and length. Are you sure of your answer?</span></p></span></p><div class="row" ><div class="col-sm-12 col-md-12 col-lg-12" ><input type="radio" id="idRadio6_0_T" name="optradio6_0" value="1" /><span class="true_false_class" >TRUE</span><input type="radio" id="idRadio6_0_F" name="optradio6_0" value="0" /><span class="true_false_class" >FALSE</span></div></div><br/></li></ol></form>
+<p class="text-center" ><button type="button" id="idOkButton6" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 6;onOkButtonClick(InitQuestion7)" >OK</button></p>
+</div></div>
+<div class="panel panel-primary" id="idPanel8" ><div class="panel-heading" ><b>question 8</b></div><div class="panel-body" ><div id="divSuccess7" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail7" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect7" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo7" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning7" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg7" /></div>
+<div id="divError7" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg7" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Select the primary stressed syllable.</span></p></span></p><form><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio7_0" type="radio" name="optradio7" value="1" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">administraTIVE</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio7_1" type="radio" name="optradio7" value="2" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">ADministration</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio7_2" type="radio" name="optradio7" value="3" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">adMINistration</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio7_3" type="radio" name="optradio7" value="4" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">admiNIStrative</span></p></span></label><br/></div></form>
+<p class="text-center" ><button type="button" id="idOkButton7" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 7;onOkButtonClick(InitQuestion8)" >OK</button></p>
+</div></div>
+<div class="panel panel-primary" id="idPanel9" ><div class="panel-heading" ><b>question 9</b></div><div class="panel-body" ><div id="divSuccess8" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail8" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect8" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo8" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning8" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg8" /></div>
+<div id="divError8" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg8" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Select the primary stressed syllable.</span></p></span></p><form><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio8_0" type="radio" name="optradio8" value="1" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">faCULty</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio8_1" type="radio" name="optradio8" value="2" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">FAculty</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio8_2" type="radio" name="optradio8" value="3" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">faculTY</span></p></span></label><br/></div></form>
+<p class="text-center" ><button type="button" id="idOkButton8" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 8;onOkButtonClick(InitQuestion9)" >OK</button></p>
+</div></div>
+<div class="panel panel-primary" id="idPanel10" ><div class="panel-heading" ><b>question 10</b></div><div class="panel-body" ><div id="divSuccess9" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail9" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect9" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo9" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning9" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg9" /></div>
+<div id="divError9" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg9" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Select the primarily stressed syllable.</span></p></span></p><form><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio9_0" type="radio" name="optradio9" value="1" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">seMESter</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio9_1" type="radio" name="optradio9" value="2" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">semesTER</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio9_2" type="radio" name="optradio9" value="3" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">SEmester</span></p></span></label><br/></div></form>
+<p class="text-center" ><button type="button" id="idOkButton9" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 9;onOkButtonClick(InitQuestion10)" >OK</button></p>
+</div></div>
+<div class="panel panel-primary" id="idPanel11" ><div class="panel-heading" ><b>question 11</b></div><div class="panel-body" ><div id="divSuccess10" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail10" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect10" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo10" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning10" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg10" /></div>
+<div id="divError10" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg10" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Select the primarily stressed syllable.</span></p></span></p><form><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio10_0" type="radio" name="optradio10" value="1" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">classROOM</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio10_1" type="radio" name="optradio10" value="2" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">CLASSroom</span></p></span></label><br/></div></form>
+<p class="text-center" ><button type="button" id="idOkButton10" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 10;onOkButtonClick(InitQuestion11)" >OK</button></p>
+</div></div>
+<div class="panel panel-primary" id="idPanel12" ><div class="panel-heading" ><b>question 12</b></div><div class="panel-body" ><div id="divSuccess11" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail11" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect11" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo11" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning11" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg11" /></div>
+<div id="divError11" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg11" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">What is stronger than unmarked syllables but weaker than primarily stressed syllables?</span></p></span></p><form><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio11_0" type="radio" name="optradio11" value="1" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Quaternary stress</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio11_1" type="radio" name="optradio11" value="2" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Secondary stress</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio11_2" type="radio" name="optradio11" value="3" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Tertiary stress</span></p></span></label><br/></div></form>
+<p class="text-center" ><button type="button" id="idOkButton11" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 11;onOkButtonClick(InitQuestion12)" >OK</button></p>
+</div></div>
+<div class="panel panel-primary" id="idPanel13" ><div class="panel-heading" ><b>question 13</b></div><div class="panel-body" ><div id="divSuccess12" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail12" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect12" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo12" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning12" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg12" /></div>
+<div id="divError12" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg12" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Only one among these can be predicted morphologically.</span></p></span></p><form><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio12_0" type="radio" name="optradio12" value="1" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Tertiary stress</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio12_1" type="radio" name="optradio12" value="2" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Secondary stress</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio12_2" type="radio" name="optradio12" value="3" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Primary stress</span></p></span></label><br/></div></form>
+<p class="text-center" ><button type="button" id="idOkButton12" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 12;onOkButtonClick(InitQuestion13)" >OK</button></p>
+</div></div>
+<div class="panel panel-primary" id="idPanel14" ><div class="panel-heading" ><b>question 14</b></div><div class="panel-body" ><div id="divSuccess13" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail13" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect13" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo13" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning13" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg13" /></div>
+<div id="divError13" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg13" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Secondary stress can be predicted morphologically. Explain!</span></p></span></p><form><div class="form-group" ><label for="comment13" ></label><textarea class="form-control" rows="5" id="comment13" ></textarea></div></form>
+<p class="text-center" ><button type="button" id="idOkButton13" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 13;onOkButtonClick(InitQuestion14)" >OK</button></p>
+</div></div>
+<div class="panel panel-primary" id="idPanel15" ><div class="panel-heading" ><b>question 15</b></div><div class="panel-body" ><div id="divSuccess14" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail14" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect14" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo14" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning14" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg14" /></div>
+<div id="divError14" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg14" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">In connected speech, what many affect a word/lexical stress placement</span></p></span></p><form><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio14_0" type="radio" name="optradio14" value="1" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Rhythmic stress</span></p></span></label><br/></div><div class="radio" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idRadio14_1" type="radio" name="optradio14" value="2" class="radio_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Tonic stress</span></p></span></label><br/></div></form>
+<p class="text-center" ><button type="button" id="idOkButton14" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 14;onOkButtonClick(InitQuestion15)" >OK</button></p>
+</div></div>
+<div class="panel panel-primary" id="idPanel16" ><div class="panel-heading" ><b>question 16</b></div><div class="panel-body" ><div id="divSuccess15" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail15" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect15" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo15" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning15" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg15" /></div>
+<div id="divError15" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg15" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">A word can be stressed in more than one correct and acceptable stress pattern; this phenomenon is called?</span></p></span></p><form><div class="checkbox" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idCheckbox15_0" type="checkbox" value="1" class="checkbox_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Contrastive stress</span></p></span></label><br/></div><div class="checkbox" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idCheckbox15_1" type="checkbox" value="2" class="checkbox_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Variable stress</span></p></span></label><br/></div><div class="checkbox" ><label style="display:inline-block;width:100%;margin-left:7px;" ><input id="idCheckbox15_2" type="checkbox" value="3" class="checkbox_answer" /><span class="class_ans_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Tonic stress</span></p></span></label><br/></div></form>
+<p class="text-center" ><button type="button" id="idOkButton15" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 15;onOkButtonClick(InitQuestion16)" >OK</button></p>
+</div></div>
+<div class="panel panel-primary" id="idPanel17" ><div class="panel-heading" ><b>question 17</b></div><div class="panel-body" ><div id="divSuccess16" class="alert alert-success alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Correct answer</div>
+<div id="divFail16" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Wrong answer</div>
+<div id="divPartiallyCorrect16" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Partially correct answer</div>
+<div id="divInfo16" class="alert alert-info alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> Answer completed</div>
+<div id="divWarning16" class="alert alert-warning alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Watch out!</strong> <span id="idWarningMsg16" /></div>
+<div id="divError16" class="alert alert-danger alert-dismissible fade in" style="display:none" ><a class="close" data-dismiss="alert" aria-label="close" >&times;</a> <strong>Error</strong> <span id="idErrorMsg16" /></div>
+<p><span class="class_qst_format text_full_width"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Emphatic and contrastive stress attract both grammatical and content words.</span></p></span></p><form class="class_bool_choices" ><ol><li><p><span class="quiz_answer_class"><p><span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Grammatical words - from, to</span><br>    <span style="background-color:#FFFFFF;font-family:Times New Roman;font-size:12pt;">Content words        - that, this</span></p></span></p><div class="row" ><div class="col-sm-12 col-md-12 col-lg-12" ><input type="radio" id="idRadio16_0_T" name="optradio16_0" value="1" /><span class="true_false_class" >TRUE</span><input type="radio" id="idRadio16_0_F" name="optradio16_0" value="0" /><span class="true_false_class" >FALSE</span></div></div><br/></li></ol></form>
+<p class="text-center" ><button type="button" id="idOkButton16" class="btn btn-primary" onclick="quiz.currentQuestionIndex = 16;onOkButtonClick(InitQuestion17)" >OK</button></p>
+</div></div>
+
+
+        <div class="well" id="idSectionTextEpilogue" style="display:none"></div>
+
+        <div class="panel panel-default" id="idQuizResultsPanelBottom" style="display:none">
+            <div class="panel-body">
+                <button type="button" class="btn btn-primary center-block" onclick="onQuizResultsButtonClick()">Quiz Result</button>
+            </div>
+        </div>
+
+        <div class="panel panel-default" id="idVerifyPanelBottom" style="display:none">
+            <div class="panel-body">
+                <span>Al termine del quiz premi il pulsante 'VERIFICA' qui' a fianco</span>
+                <button type="button" class="btn btn-primary pull-right" onclick="onVerifyButtonClick()">Verifica</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Modal -->
+    <div id="idModalNotification" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Information</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="idModalNotificationText"></p>
+                </div>
+                <div class="modal-footer">
+                    <button id="idModalNotificationCloseButton" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="idModalConfirmation" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="idModalConfirmationText"></p>
+                </div>
+                <div class="modal-footer">
+                    <button id="idModalConfirmationYesButton" type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
+                    <button id="idModalConfirmationNoButton" type="button" data-dismiss="modal" class="btn">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sounds -->
+    <audio id="idCorrectAnswerSound" src="" />
+    <audio id="idWrongAnswerSound" src="" />
+    <audio id="idPartiallyCorrectAnswerSound" src="" />
+    <audio loop muted autoplay id="idBackgroundSound" src="" />
+
+    <script>
+        var header = $('#idTopBar');
+        // Get the offset position of the top bar
+        var sticky = header.offset();
+
+        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function PageOnScroll()
+        {
+            if (window.pageYOffset > sticky.top) {
+                header.addClass("sticky");
+            }
+            else {
+                header.removeClass("sticky");
+            }
+        } 
+    </script>
+</body>
+</html>
