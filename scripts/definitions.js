@@ -42,7 +42,7 @@ const QMAKE_SEND_WEBAPP = 4;
 const QMAKE_SEND_NODEJS = 5;
 const QMAKE_SEND_NODEJS_LOCAL = 6;  
 
-const QUIZ_KEYWORD = "2AlK&CMauPuOjXQI";
+const QUIZ_KEYWORD = "c#SoBttvJUst83jg";
 
 const USER_LOGIN_ANONYMOUS = "anonymous";
 const USER_EMAIL_ANONYMOUS = "anonymous@anonymous.nowhere";
@@ -52,8 +52,8 @@ const options =
 	name:"ENG120 - QUIZ",
 	title: "ENG120 - Few Weeks To Exam",
 	id: 0,
-	numOfQuestions: 17,
-	notValuatedQuestionsArray: [1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1],
+	numOfQuestions: 30,
+	notValuatedQuestionsArray: [1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1],
 	maxtime: 1800,
 	maxmark: 10,
 	minmark: 0,
